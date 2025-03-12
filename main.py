@@ -32,3 +32,16 @@ def create_heartbeat(heartbeat:Heartbeat):
 @app.get("/version")
 def version():
     return {"version": "1.0.0"}
+
+#Upper API
+
+@app.put("/upper")
+def to_upper(text: Annotated[str, Body()]):
+    return text.upper()
+
+#To LOWER API
+
+@app.put("/lower")
+
+def to_lower(text: Annotated[str, Body()]):
+    return text.lower()
