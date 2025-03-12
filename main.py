@@ -13,3 +13,17 @@ def root():
 
 #heartbeat post api
 
+heartbeats = []
+class Heartbeat(BaseModel):
+    heartbeat:str
+    # timestamp:str = datetime.now().isoformat()
+    
+@app.post("/heartbeat")
+def create_heartbeat(heartbeat:Heartbeat):
+    timestamp = datetime.now().isoformat()
+    heartbeats.append(heartbeat.heartbeat)
+    print(heartbeats)
+    return {
+        "heartbeats":heartbeat.heartbeat,
+        "timestamp" : timestamp    }
+
