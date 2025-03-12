@@ -27,3 +27,8 @@ def create_heartbeat(heartbeat:Heartbeat):
         "heartbeats":heartbeat.heartbeat,
         "timestamp" : timestamp    }
 
+#version API
+
+@app.get("/version")
+def version():
+    return {"version": "1.0.0"}
